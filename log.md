@@ -20,3 +20,5 @@ Log init.
 
 {"author":"Jack McDonald", "email":"jack@jackmcdonald.org", "time":"1435071196", "file":"./README.md", "message":"", "file":"06984749696057244d22fc624eba21f75986ca21", "lastMaster":"fce1c5902ba76b818b383182d66cf034278fa7b1", "lastCommit":"fce1c5902ba76b818b383182d66cf034278fa7b1"}
 
+{"author":"Jack McDonald", "email":"jack@jackmcdonald.org", "time":"1435071255", "file":"./README.md", "message":"Abdi should write some tests", "file":"06984749696057244d22fc624eba21f75986ca21", "lastMaster":"fce1c5902ba76b818b383182d66cf034278fa7b1", "lastCommit":"fce1c5902ba76b818b383182d66cf034278fa7b1"}
+
