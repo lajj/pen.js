@@ -13,8 +13,7 @@
     git stash
     git checkout notify
     git pull origin notify
-    sed '1 i\
-"{\"author\":\""$author"\", \"email\":\""$email"\", \"time\":\""$timestamp"\", \"file\":\""./$plaintext"\", \"file\":\""$hash"\", \"lastMaster\":\""$master"\", \"lastCommit\":\""$head"\"}"' log.md
+    echo "{\"author\":\""$author"\", \"email\":\""$email"\", \"time\":\""$timestamp"\", \"file\":\""./$plaintext"\", \"file\":\""$hash"\", \"lastMaster\":\""$master"\", \"lastCommit\":\""$head"\"}" >> log.md
     git add .
     git commit -m "Test upload"
     git push origin notify
