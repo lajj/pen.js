@@ -1,0 +1,1 @@
+{"author":"Jack McDonald", "email":"jack@jackmcdonald.org", "time":"1435067128", "file":"./log.md", "file":"e69de29bb2d1d6434b8b29ae775ad8c2e48c5391", "lastMaster":"7246734d9b79466824c55d1748a64b83340e97d4", "lastCommit":"f9dd18c14ee195c869250381b58540ae8f8b1b99"}
