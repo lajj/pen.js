@@ -12,3 +12,5 @@ Log init.
 
 {"author":"Jack McDonald", "email":"jack@jackmcdonald.org", "time":"1435070453", "file":"./test.txt", "file":"e69de29bb2d1d6434b8b29ae775ad8c2e48c5391", "lastMaster":"fce1c5902ba76b818b383182d66cf034278fa7b1", "lastCommit":"fce1c5902ba76b818b383182d66cf034278fa7b1"}
 
+-e {"author":"Jack McDonald", "email":"jack@jackmcdonald.org", "time":"1435070528", "file":"./README.md", "file":"06984749696057244d22fc624eba21f75986ca21", "lastMaster":"fce1c5902ba76b818b383182d66cf034278fa7b1", "lastCommit":"fce1c5902ba76b818b383182d66cf034278fa7b1"}
+
