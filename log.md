@@ -8,3 +8,5 @@ Log init.
 {"author":"Jack McDonald", "email":"jack@jackmcdonald.org", "time":"1435070336", "file":"./test.txt", "file":"e69de29bb2d1d6434b8b29ae775ad8c2e48c5391", "lastMaster":"fce1c5902ba76b818b383182d66cf034278fa7b1", "lastCommit":"fce1c5902ba76b818b383182d66cf034278fa7b1"}n
 {"author":"Jack McDonald", "email":"jack@jackmcdonald.org", "time":"1435070398", "file":"./test.txt", "file":"e69de29bb2d1d6434b8b29ae775ad8c2e48c5391", "lastMaster":"fce1c5902ba76b818b383182d66cf034278fa7b1", "lastCommit":"fce1c5902ba76b818b383182d66cf034278fa7b1"}
 
+{"author":"Jack McDonald", "email":"jack@jackmcdonald.org", "time":"1435070443", "file":"./test.txt", "file":"e69de29bb2d1d6434b8b29ae775ad8c2e48c5391", "lastMaster":"fce1c5902ba76b818b383182d66cf034278fa7b1", "lastCommit":"fce1c5902ba76b818b383182d66cf034278fa7b1"}
+
