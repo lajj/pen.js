@@ -3,9 +3,10 @@ var app = express();
 var https = require('https');
 var request = require('request');
 
-function getFile (username){
+function getFile (){
 	//var token = '32c077b72daa92c9aaa6127d5d4dbe0a00f373a6';
-	var url = 'https://api.github.com/users/'+username;
+	//var url = 'https://api.github.com/users/'+username;
+	var url = 'https://api.github.com/repos/Lajj/pen.js/contents/log.md?ref=notify';
 	var body = '';
 	var result;
 	var headers= {'User-Agent':'pen.js'};
@@ -17,30 +18,26 @@ function getFile (username){
 
      request.get(options, function (error, response, body){
       	if(!error && response.statusCode == 200){
-      		var appDi = JSON.parse(body);
-      		console.log('8=================p - - - '+ appDi.login);
-      		//console.log(response);
+      		var b64string = JSON.parse(body);
+			var buf = new Buffer(b64string.content, 'base64');
+      		console.log(buf.toString());
+      		
       	}
       	else if(error){      		
       		console.log(error);
 		}
-      	else{
-      		console.log("Huhu Appdi");
-      		console.log(response.statusCode);
-
-      	}
       
     }); 
 }
 
 app.get('/', function (req, res) {
-  
-  res.send(getFile('Lukars'));
+  	var stuff = getFile();
+  	res.send(stuff);
 });
 
 app.get('/notify', function (req, res) {
-  console.log(req);
-  //put socket here
+  	console.log(req);
+ 	 //put socket here
 });
 
 var server = app.listen(3000, function () {
