@@ -22,6 +22,7 @@
   "homepage": "https://github.com/lajj/pen.js",
   "dependencies": {
     "express": "^4.13.0",
-    "request": "^2.58.0"
+    "request": "^2.58.0",
+    "socket.io": "^1.3.5"
   }
 }
