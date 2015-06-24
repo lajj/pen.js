@@ -9,7 +9,6 @@ function getFile (){
 	var body = '';
 	var result;
 	var headers= {'User-Agent':'pen.js',
-				   'authToken' : '65dfc0e14c17276ff3930d617e9ef4bfed77b13c',
 					'Content-Type': 'application/json'};
 
 	var options = {
@@ -24,11 +23,16 @@ function getFile (){
       		var obj = buf.toString().replace(/time/g, "timestamp");
       		var lol = obj.split('\n');
       		var returnstring="";
+          var data = [];
       		for(var i=0;i<lol.length;i++){
 
       			try{
-        	      		var kp = JSON.parse(lol[i]);
+        	      		 
+                    var kp = JSON.parse(lol[i]);
+                    
 		 				if(kp.author){
+              data.push(kp); 
+             
 		 					var convertedTime  ;
  		       	      		returnstring += "<li><h2>" + kp.author + kp.timestamp + "</h2></li>";
  		       	      	}
@@ -42,14 +46,14 @@ function getFile (){
       	else if(error || response.statusCode !== 200){      		
       		console.log(error || response.statusCode);
 		}
-
+       console.log(data[0].author);
       
     }); 
 }
 
 app.get('/', function (req, res) {
   	var stuff = getFile();
-  	res.send(stuff);
+  	res.send('stuff');
 });
 
 app.get('/notify', function (req, res) {
