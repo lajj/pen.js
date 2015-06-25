@@ -1,1 +1,12 @@
 body {background-color: aquamarine;}
+li{  font-size: 12px;
+}
+h2, .time{  display: inline-block;
+	  margin-bottom: 5px;
+
+}
+.time{color: #aaa;}
+.hash{  font-size: 10px;
+  font-style: italic;
+}
+p{margin: 3px 0;}
