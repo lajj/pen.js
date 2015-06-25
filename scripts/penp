@@ -1,0 +1,2 @@
+#!/bin/sh
+    wget -qO- http://localhost:3000/notify &> /dev/null

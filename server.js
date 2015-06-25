@@ -46,7 +46,7 @@ function getFile (){
       	else if(error || response.statusCode !== 200){      		
       		console.log(error || response.statusCode);
 		}
-       console.log(data[0].author);
+       console.log(data);
       
     }); 
 }
@@ -57,8 +57,8 @@ app.get('/', function (req, res) {
 });
 
 app.get('/notify', function (req, res) {
-  	console.log(req);
- 	 //put socket here
+  	var stuff = getFile();
+  	res.send('stuff');
 });
 
 var server = app.listen(3000, function () {

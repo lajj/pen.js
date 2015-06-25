@@ -14,10 +14,12 @@
     git stash
     git checkout notify
     git pull origin notify
-    echo "{\"author\":\""$author"\", \"email\":\""$email"\", \"time\":\""$timestamp"\", \"file\":\""./$plaintext"\", \"message\":\""$message"\", \"file\":\""$hash"\", \"lastMaster\":\""$master"\", \"lastCommit\":\""$head"\"}" >> log.md
+    echo "{\"author\":\""$author"\", \"email\":\""$email"\", \"time\":\""$timestamp"\", \"file\":\""./$plaintext"\", \"message\":\""$message"\", \"SHA\":\""$hash"\", \"lastMaster\":\""$master"\", \"lastCommit\":\""$head"\"}" >> log.md
     git add .
-    git commit -m "Test upload"
+    git commit -m "$author working on ./$1"
     git push origin notify
     git checkout $home
     echo "Reverting to working directory"
     git stash apply
+    echo "Notifying server"
+    wget -qO- http://localhost:3000/notify &> /dev/null
