@@ -15,50 +15,47 @@ function getFile (){
 		headers: headers,
 		url: url
 	};
-
      request.get(options, function (error, response, body){
       	if(!error && response.statusCode == 200){
       		var b64string = JSON.parse(body);
-			var buf = new Buffer(b64string.content, 'base64');
+			    var buf = new Buffer(b64string.content, 'base64');
       		var obj = buf.toString().replace(/time/g, "timestamp");
-      		var lol = obj.split('\n');
-      		var returnstring="";
+      		var objArray = obj.split('\n');
+          var returnString="";
           var data = [];
-      		for(var i=0;i<lol.length;i++){
-
+      		for(var i=0;i<objArray.length;i++){
       			try{
-        	      		 
-                    var kp = JSON.parse(lol[i]);
-                    
-		 				if(kp.author){
-              data.push(kp); 
-             
-		 					var convertedTime  ;
- 		       	      		returnstring += "<li><h2>" + kp.author + kp.timestamp + "</h2></li>";
- 		       	      	}
+              var parsedSingleObj = JSON.parse(objArray[i]);        
+		 				if(parsedSingleObj.author){
+                data.push(parsedSingleObj);              
+  		 					var convertedTime = new Date(parseInt(parsedSingleObj.timestamp)*1000);
+                var timeString = convertedTime.toGMTString();
+     	      		returnString.data += "<li><h2>" + parsedSingleObj.author + "</h2> <span class='time'>" + timeString + "</span><p> " + parsedSingleObj.file + " : " + parsedSingleObj.message + "</p><p> " + parsedSingleObj.SHA + "</p></li>";
+   	      	}
 				    }catch(e){
 				        //console.log(e);
 				    }
-	      		//console.log(returnstring);	      		      			
-
       		}
+        return returnString;
       	}
       	else if(error || response.statusCode !== 200){      		
       		console.log(error || response.statusCode);
 		}
-       console.log(data);
+    //return returnString;
+    // callback(returnString);
       
     }); 
+return returnString;
 }
 
 app.get('/', function (req, res) {
   	var stuff = getFile();
-  	res.send('stuff');
+  	res.send(stuff);
 });
 
 app.get('/notify', function (req, res) {
   	var stuff = getFile();
-  	res.send('stuff');
+  	res.send(stuff);
 });
 
 var server = app.listen(3000, function () {
