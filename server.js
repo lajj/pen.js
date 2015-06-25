@@ -19,6 +19,12 @@ http.listen(3000, function (){
 // });
 
 
+io.on('connection', function(socket){
+  socket.on('update', function(stuff){
+    io.emit('update', stuff);
+  })
+})
+
 app.get('/notify', function (req, res) {
    
     methods(function(string){
@@ -51,14 +57,3 @@ app.get('/index.html', function (req, res) {
        });
     });
 });
-
-
-
-// var server = app.listen(3000, function () {
-
-//   var host = server.address().address;
-//   var port = server.address().port;
-
-//   console.log('PenJs listening at http://%s:%s', host, port);
-
-// });
