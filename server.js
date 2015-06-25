@@ -1,69 +1,49 @@
 var express = require('express');
 var app = express();
-var https = require('https');
-var request = require('request');
-var io = require('socket.io');
-var port = process.env.PORT || 3000;
+var http = require('http').Server(app)
+var fs = require('fs');
+var methods = require('./github.js');
+var io = require('socket.io')(http); 
 
-function getFile (){
-	var url = 'https://api.github.com/repos/Lajj/pen.js/contents/log.md?ref=notify';
-	var body = '';
-	var result;
-	var headers= {'User-Agent':'pen.js',
-					'Content-Type': 'application/json'};
-    var returnString="";
-	var options = {
-		headers: headers,
-		url: url
-	};
-     request.get(options, function (error, response, body){
-      	if(!error && response.statusCode == 200){
-      		var b64string = JSON.parse(body);
-            var buf = new Buffer(b64string.content, 'base64');
-      		var obj = buf.toString().replace(/time/g, "timestamp");
-      		var objArray = obj.split('\n');
-            var returnString="";
-            var data = [];
-      		for(var i=0;i<objArray.length;i++){
-      			try{
-              var parsedSingleObj = JSON.parse(objArray[i]);        
-		 				if(parsedSingleObj.author){
-                data.push(parsedSingleObj);              
-  		 					var convertedTime = new Date(parseInt(parsedSingleObj.timestamp)*1000);
-                var timeString = convertedTime.toGMTString();
-     	      		returnString.data += "<li><h2>" + parsedSingleObj.author + "</h2> <span class='time'>" + timeString + "</span><p> " + parsedSingleObj.file + " : " + parsedSingleObj.message + "</p><p> " + parsedSingleObj.SHA + "</p></li>";
-   	      	}
-				    }catch(e){
-				        //console.log(e);
-				    }
-      		}
-        return returnString;
-      	}
-      	else if(error || response.statusCode !== 200){      		
-      		console.log(error || response.statusCode);
-		}
-    //return returnString;
-    // callback(returnString);
-      
-    }); 
-return returnString;
-}
+http.listen( process.env.PORT || 3000, function (){
+    //console.log('listening on 3000');
+  });
 
-app.get('/', function (req, res) {
-  	var stuff = getFile();
-  	res.send(stuff);
-});
+io.on('connection', function(socket){
+  socket.on('update', function(stuff){
+    io.emit('update', stuff);
+  })
+})
 
 app.get('/notify', function (req, res) {
-  	var stuff = getFile();
-  	res.send(stuff);
+   
+    methods(function(string){
+      io.emit('update', string);
+    });
+
+    res.send('Socket get fucked');
 });
 
-var server = app.listen(port, function () {
+app.get('/', function (req, res) {
+      res.redirect('/index.html');
+  });
 
-  var host = server.address().address;
-  var port = server.address().port;
+app.get('/*', function (req, res) {
+  var ext = req.url.split('.')[1] || 'text';
+  res.writeHead(200, {'Content-Type' : 'text/' + ext});
+  res.write(fs.readFileSync(__dirname + req.url));
+  res.end();
+})
 
-  console.log('Example app listening at http://%s:%s', host, port);
+app.get('/index.html', function (req, res) {
 
+    methods(function(string){
+
+       fs.readFile(__dirname + "/index.html", function (err,data){
+        //console.log(data.toString());
+        var assembleHTML = data.toString().replace("<li></li>" , string);
+        res.writeHead(200, {'Content-Type':'text/html'});
+        res.send(assembleHTML);
+       });
+    });
 });
