@@ -5,19 +5,9 @@ var fs = require('fs');
 var methods = require('./github.js');
 var io = require('socket.io')(http); 
 
-http.listen(3000, function (){
-    console.log('listening on 3000');
+http.listen( process.env.PORT || 3000, function (){
+    //console.log('listening on 3000');
   });
-
-
-// io.on('connection', function(socket){
-//   //console.log('hello world');
-//     socket.on('update', function(bla){
-//     //console.log(bla);
-//     io.emit('update', bla);
-// });
-// });
-
 
 io.on('connection', function(socket){
   socket.on('update', function(stuff){
