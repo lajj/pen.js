@@ -19,5 +19,10 @@
 =======
 {"author":"", "email":"jwrans@gmail.com", "time":"1435311955", "file":"././server.js", "message":"this is soooooo cooool", "SHA":"ee0f61d66dc8ecbba63fdb346c85ab566aca3994", "lastMaster":"c20abadfd0ba15693f60583e751cc8176f899e61", "lastCommit":"c20abadfd0ba15693f60583e751cc8176f899e61"}
 {"author":"", "email":"jwrans@gmail.com", "time":"1435311992", "file":"./server.js", "message":"this is soooooo cooool", "SHA":"ee0f61d66dc8ecbba63fdb346c85ab566aca3994", "lastMaster":"c20abadfd0ba15693f60583e751cc8176f899e61", "lastCommit":"c20abadfd0ba15693f60583e751cc8176f899e61"}
+<<<<<<< HEAD
 >>>>>>> eebb8ae0c7cdbb26867a4cd4d5b36bb4e50c1e86
 {"author":"Claire Mitchell", "email":"claireinezmitchell@gmail.com", "time":"1435312028", "file":"./README.md", "message":"", "SHA":"4421a655bb7138bbcf16b11734462b3e5ba40950", "lastMaster":"c20abadfd0ba15693f60583e751cc8176f899e61", "lastCommit":"c20abadfd0ba15693f60583e751cc8176f899e61"}
+=======
+{"author":"", "email":"jwrans@gmail.com", "time":"1435312045", "file":"./poop", "message":"heyhey", "SHA":"", "lastMaster":"c20abadfd0ba15693f60583e751cc8176f899e61", "lastCommit":"c20abadfd0ba15693f60583e751cc8176f899e61"}
+>>>>>>> ac7aa293be8601d6131ca1aeb3677a64eeedc1ba
+{"author":"Claire Mitchell", "email":"claireinezmitchell@gmail.com", "time":"1435312359", "file":"./README.md", "message":"", "SHA":"4421a655bb7138bbcf16b11734462b3e5ba40950", "lastMaster":"c20abadfd0ba15693f60583e751cc8176f899e61", "lastCommit":"c20abadfd0ba15693f60583e751cc8176f899e61"}
