@@ -2,6 +2,7 @@
     echo $(date)
     echo $1
     author=$(git config --get user.name)
+    home=$(git rev-parse --abbrev-ref HEAD)
     plaintext=$1
     timestamp=$(date +%s)
     
