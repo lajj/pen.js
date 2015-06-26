@@ -10,6 +10,19 @@
     message=${2:-""}
     plaintext=$1
     timestamp=$(date +%s)
+    
+    if [ -z "$author" ];
+        then
+        echo "You need to set up your authorname in order to use this properly"
+        echo 'You need to type git config user.name "Firstname Lastname"'
+        exit 1
+    elif [ -z "$hash" ];
+        then
+        echo "You are trying to pen a file that does not exist or is not tracked in git, please check and restart"
+        exit 1
+        
+    else
+    
     echo "Stashing working directory"
     git stash
     git checkout notify
@@ -23,3 +36,4 @@
     git stash pop
     echo "Notifying server"
     wget -qO- http://penjs.herokuapp.com/notify &> /dev/null
+    fi
