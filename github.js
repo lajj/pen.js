@@ -25,7 +25,7 @@ function getFile (callback){
 		 				  if(parsedSingleObj.author){
   		 					var convertedTime = new Date(parseInt(parsedSingleObj.timestamp)*1000);
                 var timeString = convertedTime.toGMTString();
-     	      		returnString += "<li><h2>" + parsedSingleObj.author + "</h2> <span class='time'>" + timeString + "</span><p> " + parsedSingleObj.file + " : " + parsedSingleObj.message + "</p><p class='hash'> " + parsedSingleObj.SHA + "</p></li>";
+     	      		returnString = "<li><h2>" + parsedSingleObj.author + "</h2> <span class='time'>" + timeString + "</span><p class='file'> " + parsedSingleObj.file + " : " + parsedSingleObj.message + "</p><p class='hash'> " + parsedSingleObj.SHA + "</p></li>" + returnString;
    	      	  }  
 				    }catch(e){
 				        //console.log(e);

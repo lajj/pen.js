@@ -1,12 +1,57 @@
-body {background-color: aquamarine;}
-li{  font-size: 12px;
+body {
+	background-color: aquamarine;
 }
-h2, .time{  display: inline-block;
-	  margin-bottom: 5px;
-
+li {
+  width: 100%;	
+  font-size: 12px;
+  background-color: rgba(150, 10, 150, 0.3);
+  padding: 1px 15px;
+  border-radius: 3px;
+  list-style: none;
+  margin: 3px 0;
 }
-.time{color: #aaa;}
-.hash{  font-size: 10px;
-  font-style: italic;
+h1{
+	text-align: center;
 }
-p{margin: 3px 0;}
+h2, .time{  
+	display: inline-block;
+	margin-bottom: 5px;
+}
+.time{
+	color: #afa;
+    font-size: 9px;
+    margin-left: 5px;
+}
+.file{
+	font-weight: 900;
+}
+.hash{  
+	font-size: 10px;
+  	font-style: italic;
+	margin: 6px 0;
+}
+p{
+	margin: 3px 0;
+}
+#wrapper, #secondWrapper {
+  height: 90%;
+  width: 40%;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.3);
+  overflow: scroll;
+  border-radius: 10px;
+  display: inline-block;
+  float: left;
+}
+ul{
+	display: inline-block;
+    float: left;
+}
+#content{
+	margin-right: 5%;
+}
+#chatter{
+  position: fixed;
+  bottom: 0px;
+  left: 50%;
+}

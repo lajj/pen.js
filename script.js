@@ -5,8 +5,22 @@ window.onload = function(){
 }
 
 var socket = io();
+var getChatElement = document.getElementById('chat');
+var sendbutton = document.getElementById('sendbutton');	
+var inputfield = document.getElementById('inputfield');
+var getElement = document.getElementById('content');
 
 socket.on('update', function (data){
-	var getElement = document.getElementById('content');
 	getElement.innerHTML = data;
+});
+
+
+sendbutton.addEventListener("click", function(){
+	var message = inputfield.value;
+	console.log(message);
+	socket.emit('chat', message);
+});
+
+socket.on('loadChat', function(data){
+	getChatElement.innerHTML = data;
 })
