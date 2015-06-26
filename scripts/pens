@@ -21,9 +21,10 @@
         echo "You are trying to pen a file that does not exist or is not tracked in git, please check and restart"
         exit 1
         
-    elif [ $3="-v" ];
+    elif [ $3 ];
         then
         echo "Stashing working directory"
+        #echo $3
         git stash
         git checkout notify
         git pull origin notify
@@ -36,10 +37,11 @@
         git stash pop
         echo "Notifying server"
         wget -qO- http://penjs.herokuapp.com/notify &> /dev/null
+        echo "Done"
         exit 0
     else
 
-        echo "Stashing working directory"
+        #echo "Stashing working directory"
         git stash -q
         git checkout -q notify
         git pull -q origin notify
@@ -48,8 +50,9 @@
         git commit --quiet -m "$author working on ./$1"
         git push -q origin notify
         git checkout -q $home
-        echo "Reverting to working directory"
-        git stash -q pop
-        echo "Notifying server"
+        #echo "Reverting to working directory"
+        git stash pop -q
+        #echo "Notifying server"
         wget -qO- http://penjs.herokuapp.com/notify &> /dev/null
+        echo "Done"
     fi

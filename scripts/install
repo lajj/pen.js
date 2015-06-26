@@ -1,7 +1,7 @@
 #!/bin/bash
 
 $(git config alias.pen '!scripts/penh')
-chmod +x scripts/penh
+chmod +x scripts/pens
 $(git config alias.chat '!scripts/penc')
 chmod +x scripts/penc
 $(git config alias.tempo '!scripts/pent')
