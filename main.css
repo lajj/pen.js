@@ -1,0 +1,13 @@
+body {}
+
+.container{
+	width: 38em;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.status {
+	width: 550px;
+	height: 400px; 
+	outline: 1px solid #000;
+}
