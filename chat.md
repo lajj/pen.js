@@ -10,3 +10,4 @@ Jack McDonald - Hey ho
 Jack McDonald - Hey guys talk to me
 Jack McDonald - I am talking to myself
 Lukars - hi friends
+Jack McDonald - Hi Lukas
