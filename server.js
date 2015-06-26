@@ -3,17 +3,23 @@ var app = express();
 var http = require('http').Server(app)
 var fs = require('fs');
 var methods = require('./github.js');
+<<<<<<< Updated upstream
 var io = require('socket.io')(http); 
 
 http.listen( process.env.PORT || 3000, function (){
     //console.log('listening on 3000');
   });
 
+=======
+var io = require('socket.io')(server); 
+
+>>>>>>> Stashed changes
 io.on('connection', function(socket){
   socket.on('update', function(stuff){
     io.emit('update', stuff);
   })
 })
+<<<<<<< Updated upstream
 
 app.get('/notify', function (req, res) {
    
@@ -23,6 +29,8 @@ app.get('/notify', function (req, res) {
 
     res.send('Socket get fucked');
 });
+=======
+>>>>>>> Stashed changes
 
 app.get('/', function (req, res) {
       res.redirect('/index.html');
@@ -47,3 +55,22 @@ app.get('/index.html', function (req, res) {
        });
     });
 });
+<<<<<<< Updated upstream
+=======
+
+app.get('/notify', function (req, res) {
+  	var stuff = methods();
+    var input = req;
+    socket.emit('update',input);
+  	res.send('Ok: stuff');
+});
+
+var server = app.listen(3000, function () {
+
+  var host = server.address().address;
+  var port = server.address().port;
+
+  console.log('PenJs listening at http://%s:%s', host, port);
+
+});
+>>>>>>> Stashed changes
