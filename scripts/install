@@ -12,5 +12,5 @@ $(git config alias.team '!scripts/peno')
 chmod +x scripts/peno
 $(git config alias.lastm '!scripts/penc')
 chmod +x scripts/penc
-$(git config alias.teamupdates '!scripts/penr')
-chmod +x scripts/penr
+$(git config alias.teamup '!scripts/penz')
+chmod +x scripts/penz
