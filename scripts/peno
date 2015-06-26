@@ -1,0 +1,4 @@
+#!/bin/bash
+
+curl 'https://raw.githubusercontent.com/lajj/pen.js/notify/chat.md' | sed -e 's/[{}]/''/g' | awk -v k="text" '{n=split($0,a,", "); for (i=1; i<=n; i++) { print a[i]}}'
+#echo $(curl "https://github.com/lajj/pen.js/blob/notify/log.md")
