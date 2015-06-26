@@ -1,2 +1,0 @@
-#!/bin/sh
-    wget -qO- http://penjs.herokuapp.com/notify &> /dev/null
