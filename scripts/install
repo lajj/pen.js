@@ -6,3 +6,5 @@ $(git config alias.chat '!scripts/penc')
 chmod +x scripts/penc
 $(git config alias.tempo '!scripts/pent')
 chmod +x scripts/pent
+$(git config alias.ping '!scripts/penp')
+chmod +x scripts/penp
