@@ -2,22 +2,38 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app)
 var fs = require('fs');
-var methods = require('./github.js');
+var gitHub = require('./github.js');
 var io = require('socket.io')(http); 
+var chatArray = [];
+
 
 http.listen( process.env.PORT || 3000, function (){
     //console.log('listening on 3000');
   });
 
 io.on('connection', function(socket){
+
+  console.log('User Connected');
   socket.on('update', function(stuff){
     io.emit('update', stuff);
-  })
+  });
+  
+  socket.on('chat', function(stuff){
+    console.log(stuff);
+    var dataOfMessage = new Date();
+    chatArray.push({'message' : stuff, 'date' : dataOfMessage});
+    var returnChat = "";
+    for(var i=0;i<chatArray.length;i++){
+      returnChat = "<li>" + chatArray[i].message + " " + chatArray[i].date + "</li>" + returnChat;
+    }
+    io.emit('loadChat', returnChat);
+
+  });
 })
 
 app.get('/notify', function (req, res) {
    
-    methods(function(string){
+    gitHub(function(string){
       io.emit('update', string);
     });
 
@@ -37,7 +53,7 @@ app.get('/*', function (req, res) {
 
 app.get('/index.html', function (req, res) {
 
-    methods(function(string){
+    gitHub(function(string){
 
        fs.readFile(__dirname + "/index.html", function (err,data){
         //console.log(data.toString());

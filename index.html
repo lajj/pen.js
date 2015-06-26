@@ -6,9 +6,20 @@
   </head>
   <body>
     <h1>Hello friend!</h1>
-    <ul id="content">
-      <li></li>
-    </ul>
+    <div id="wrapper">
+      <ul id="content">
+        <li></li>
+      </ul>
+    </div>
+    <div id="secondWrapper">
+      <ul id="chat">
+        <li></li>
+      </ul>
+      <div id="chatter">
+        <textarea id="inputfield" maxlength="250"></textarea>
+        <input type="submit" id="sendbutton" value="send" />
+      </div>
+    </div>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="script.js" type="text/javascript"></script>
   </body>
