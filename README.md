@@ -4,7 +4,7 @@ Project Event Notification: A set of tools to use Github to enable teams to noti
 
 ### Run It
 
-Pen.js works from the notify branch - so clone the repo, `$npm install` and `$git checkout -b notify` to enable the local branch. In order to install the bash scripts, make sure you are in the root folder of the project and `$bash scripts/install` to get them to work. The bash scripts point to the remote version of the app, so although you can run it on your local machine, it is better to check out [penjs](http://penjs.herokuapp.com)
+Pen.js works from the notify branch - so clone the repo, `$npm install` and `$git checkout -b notify` to enable the local branch. After that you switch back to your master/working branch and need not to go back to the notify branch. In order to install the bash scripts, make sure you are in the root folder of the project and `$bash scripts/install` to get them to work. The bash scripts point to the remote version of the app, so although you can run it on your local machine, it is better to check out [penjs](http://penjs.herokuapp.com)
 
 ### Tools?
 
