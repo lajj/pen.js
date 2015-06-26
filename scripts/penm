@@ -1,0 +1,46 @@
+#!/bin/sh
+    echo $(date)
+    echo $1
+    author=$(git config --get user.name)
+    plaintext=$1
+    timestamp=$(date +%s)
+    
+    if [ -z "$author" ];
+        then
+        echo "You need to set up your authorname in order to use this properly"
+        echo 'You need to type git config user.name "Firstname Lastname"'
+        exit 1
+    elif [ $2 ];
+        then
+        echo "Stashing working directory"
+        git stash
+        git checkout notify
+        git pull origin notify
+        echo "$author - $plaintext" >> chat.md
+        git add .
+        git commit -m "$author chatting"
+        git push origin notify
+        git checkout $home
+        echo "Reverting to working directory"
+        git stash pop
+        echo "Notifying server"
+        wget -qO- http://penjs.herokuapp.com/notify &> /dev/null
+        echo "Done"
+        exit 0
+    else
+
+        #echo "Stashing working directory"
+        git stash -q
+        git checkout -q notify
+        git pull -q origin notify
+        echo "$author - $plaintext" >> chat.md
+        git add .
+        git commit --quiet -m "$author chatting"
+        git push -q origin notify
+        git checkout -q $home
+        #echo "Reverting to working directory"
+        git stash pop -q
+        #echo "Notifying server"
+        wget -qO- http://penjs.herokuapp.com/notify &> /dev/null
+        echo "Done"
+    fi
