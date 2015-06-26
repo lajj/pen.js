@@ -1,0 +1,6 @@
+#!/bin/bash
+
+curl 'https://raw.githubusercontent.com/lajj/pen.js/notify/chat.md' | tail -10 | while read line
+do
+echo "$line"
+done

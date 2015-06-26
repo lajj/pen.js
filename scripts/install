@@ -1,10 +1,16 @@
 #!/bin/bash
 
-$(git config alias.pen '!scripts/penh')
+$(git config alias.pen '!scripts/pens')
 chmod +x scripts/pens
-$(git config alias.chat '!scripts/penc')
-chmod +x scripts/penc
+$(git config alias.chat '!scripts/penm')
+chmod +x scripts/penm
 $(git config alias.tempo '!scripts/pent')
 chmod +x scripts/pent
 $(git config alias.ping '!scripts/penp')
 chmod +x scripts/penp
+$(git config alias.team '!scripts/peno')
+chmod +x scripts/peno
+$(git config alias.lastm '!scripts/penc')
+chmod +x scripts/penc
+$(git config alias.teamup '!scripts/penz')
+chmod +x scripts/penz
